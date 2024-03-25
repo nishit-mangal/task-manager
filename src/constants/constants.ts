@@ -1,0 +1,13 @@
+export const RESPONSE_CODE={
+    SUCCESS:200,
+    INTERNAL_SERVER_ERROR: 500
+}
+export const RESPONSE_MESSAGE={
+    SUCCESS:'SUCCESS',
+    INTERNAL_SERVER_ERROR:'INTERNAL_SERVER_ERROR'
+}
+
+export const SESSION_STATUS={
+    AUTHENTICATED:'authenticated',
+    UNAUTHENTICATED : 'unauthenticated'
+}
