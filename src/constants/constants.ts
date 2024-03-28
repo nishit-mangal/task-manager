@@ -11,3 +11,9 @@ export const SESSION_STATUS={
     AUTHENTICATED:'authenticated',
     UNAUTHENTICATED : 'unauthenticated'
 }
+
+export const PRIORITY = {
+    BLOCKER:'BLOCKER',
+    CRITICAL:'CRITICAL',
+    HIGH:'HIGH'
+}

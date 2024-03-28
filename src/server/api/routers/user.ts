@@ -129,8 +129,16 @@ export const userRouter = createTRPCRouter({
       throw new Error('User not found');
     }
   }),
-
-  getSecretMessage: protectedProcedure.query(() => {
-    return "you can now see this secret message!";
-  }),
+  getAllUserDetail: protectedProcedure
+    .query(async ({ ctx }) => {
+      const user = await db.user.findMany({
+        select:{
+          id:true,
+          name:true
+        }
+      });
+      return {
+        user
+      }
+    }),
 });

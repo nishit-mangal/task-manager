@@ -1,4 +1,4 @@
-import SignUpComponent from "../../components/SignUpComponent";
+import SignUpComponent from "../../components/verification/SignUpComponent";
 
 const SignUp = ()=>{
   return (
