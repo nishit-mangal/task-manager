@@ -86,6 +86,7 @@ export const userRouter = createTRPCRouter({
         resposneCode: RESPONSE_CODE.SUCCESS,
         responseMessage: "New User Created Successfully",
         data: {
+          id: user.id,
           name: user.name ?? "",
           email: user.email ?? "",
           phoneNumber: user.phone_number ?? "",

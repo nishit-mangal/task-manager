@@ -9,6 +9,7 @@ import { ShowTask } from "~/components/ShowTask";
 import { api } from "~/utils/api";
 
 export interface CompleteUserData {
+  id: number
   name: string;
   email: string;
   phoneNumber: string;
@@ -21,6 +22,7 @@ export default function Home() {
   const [step, setSteps] = useState<Number>(0);
   const {data:response} = api.user.getUserDetail.useQuery(session?.user?.email ?? '')
   const [userData, setUserData] = useState<CompleteUserData>({
+    id:0,
     name: "",
     email: "",
     phoneNumber: "",
@@ -31,6 +33,7 @@ export default function Home() {
   useEffect(()=>{
     setUserData((val) => ({
       ...val,
+      id:response?.data.id || 0,
       name: response?.data.name || "",
       email: response?.data.email || "",
       phoneNumber: response?.data.phoneNumber || '',
@@ -50,7 +53,7 @@ export default function Home() {
     if (step === 3) {
       return <TeamDetail />;
     }
-    return <ShowTask />;
+    return <ShowTask userId={userData.id}/>;
   };
 
   const handleLogOut = async () => {
@@ -59,7 +62,7 @@ export default function Home() {
   return status === SESSION_STATUS.UNAUTHENTICATED ? (
     <SignUp></SignUp>
   ) : (
-    <div className="fixed inset-0 bg-slate-200">
+    <div className="fixed inset-0 bg-slate-200 overflow-auto">
       <div className="flex items-center justify-between bg-white pl-10 pr-10">
         <div className="cursor-pointer font-mono" onClick={() => setSteps(0)}>
           Hi! {session?.user?.name}

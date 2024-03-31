@@ -1,4 +1,3 @@
-import { type } from "os";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { CompleteUserData } from "~/pages";
 import { api } from "~/utils/api";
